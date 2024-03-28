@@ -1,19 +1,28 @@
-<script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+<script>
+	export let isModalOpen = false;
+	export let message = '';
+	export let onModalClose = () => {
+	};
 
-  export let show: boolean;
-  const dispatch = createEventDispatcher();
-
-  const closeModal = () => {
-    dispatch('close');
-  };
+	function closeModal() {
+		isModalOpen = false;
+		onModalClose();
+	}
 </script>
 
-{#if show}
-  <div class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-    <div class="bg-white p-8 rounded shadow-lg">
-      <button class="absolute top-0 right-0 m-4 text-gray-600" on:click={closeModal}>&times;</button>
-      <slot></slot>
-    </div>
-  </div>
+{#if isModalOpen}
+	<dialog id="dialog_challenge" class="modal" open>
+		<div class="modal-box">
+			<form method="dialog">
+				<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" on:click={closeModal}>X
+				</button>
+			</form>
+			<p class="py-4">{message}</p>
+		</div>
+		<form method="dialog" class="modal-backdrop">
+			<button on:click={closeModal}></button>
+		</form>
+	</dialog>
 {/if}
+
+

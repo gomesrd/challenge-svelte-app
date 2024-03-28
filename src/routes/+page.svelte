@@ -1,5 +1,7 @@
 <script>
-  import Home from './home/+page.svelte';
+	import Challenge from './challenge/+page.svelte';
 </script>
+<Challenge />
 
-<Home/>
+
+

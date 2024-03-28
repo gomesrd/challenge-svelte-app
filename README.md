@@ -1,18 +1,6 @@
 ## Tests
 
-To run all tests, run the following command:
-
-```bash
-npm run test
-```
-
-If you want to run units test, you can use the following command:
-```bash
-npm run test:unit
-```
-
-
-If you want to run integration test, you can use the following command:
+To run integration test, you can use the following command:
 
 ```bash
 npm run test:integration
